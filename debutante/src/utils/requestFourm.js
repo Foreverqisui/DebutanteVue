@@ -3,7 +3,7 @@ import cookie from "js-cookie";
 import { ElMessage } from "element-plus";
 const service = axios.create({
     NODE_ENV: '"development"',
-    baseURL: 'http://localhost:8099',
+    baseURL: 'http://123.56.156.8:8099',
     timeout: 5000
 });
 

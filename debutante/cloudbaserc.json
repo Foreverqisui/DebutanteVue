@@ -1,0 +1,19 @@
+{
+    "envId": "cloudbase-baas-6ge40bskcf8a0ae7",
+    "version": "2.0",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "functionRoot": "./functions",
+    "functions": [],
+    "framework": {
+        "name": "kkkk",
+        "plugins": {
+            "vuepress": {
+                "use": "@cloudbase/framework-plugin-website",
+                "inputs": {
+                    "buildCommand": "npm run build",
+                    "outputPath": ".vuepress/dist"
+                }
+            }
+        }
+    }
+}

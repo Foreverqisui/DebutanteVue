@@ -24,10 +24,24 @@ export default {
             method: 'GET',
         })
     },
-    //oss文件上传
-    uploadFile(file) {
+    //根据userId查询用户名
+    findByUserId(uid){
         return request({
-            url: `/api/oss/file/uploadFile`,
+            url: `/admin/debutante/findLoginByUid/${uid}`,
+            method: 'GET'
+        })
+    },
+    //根据uid查询userId
+    getUserIdByUid(uid){
+        return request({
+            url: `/admin/debutante/getUserIdByUid?uid=${uid}`,
+            method: 'GET'
+        })
+    },
+    //oss文件上传
+    uploadFile(file,id) {
+        return request({
+            url: `/api/oss/file/uploadFile/${id}`,
             method: 'POST',
             data: file
         })
@@ -63,4 +77,53 @@ export default {
             data: uploadTime
         })
     },
+    //打卡功能
+    punch() {
+        return request({
+            url: `/admin/debutante/punch`,
+            method: "POST",
+        })
+    },
+    //修改用户名 密码 forumId
+    updateUsernameByUid(uid, username) {
+        return request({
+            url: `/admin/debutante/updateUsernameByUid?uid=${uid}&username=${username}`,
+            method: 'Post'
+        })
+    },
+    updatePasswordByUid(uid, password) {
+        return request({
+            url: `/admin/debutante/updatePasswordByUid?uid=${uid}&password=${password}`,
+            method: 'Post'
+        })
+    },
+    updateForumIdByUid(uid, forumId) {
+        return request({
+            url: `/admin/debutante/updateForumIdByUid?uid=${uid}&forumId=${forumId}`,
+            method: 'Post'
+        })
+    },
+    //统计当前用户私信数量
+    getMessageCount(userId){
+        return request({
+            url: `/admin/debutante/countMessage?toId=${userId}`,
+            method: 'Get'
+        })
+    },
+    //投票
+    vote(username,groupPosition){
+        return request({
+            url: `/admin/debutante/vote?username=${username}&groupPosition=${groupPosition}`,
+            method: 'POST'
+        })
+    },
+    //查询结果
+    getVote(position){
+        return request({
+            url: `/admin/debutante/getVote?position=${position}`,
+            method:"GET"
+        })
+    }
+
+
 }

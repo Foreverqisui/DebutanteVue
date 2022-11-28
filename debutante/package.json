@@ -5,22 +5,36 @@
   "scripts": {
     "dev": "vite --port 9001",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache"
   },
   "dependencies": {
     "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
+    "echarts": "^5.4.0",
     "element-plus": "^2.1.7",
     "hover.css": "^2.3.2",
     "jquery": "^3.6.0",
     "js-cookie": "^3.0.1",
+    "qs": "^6.11.0",
     "vue": "^3.2.25",
     "vue-cookies": "^1.7.4",
     "vue-router": "^4.0.13",
+    "vuepress-theme-ting": "^1.0.4",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.0",
-    "vite": "^2.9.0"
+    "@vuepress/client": "2.0.0-beta.51",
+    "@vuepress/theme-blog": "^1.6.0",
+    "vite": "^2.9.0",
+    "vue": "^3.2.29",
+    "vue-template-compiler": "^2.7.10",
+    "vuepress": "2.0.0-beta.51",
+    "vuepress-plugin-helper-live2d": "^1.0.2",
+    "vuepress-theme-hope": "2.0.0-beta.103",
+    "vuepress-vite": "^2.0.0-beta.51"
   }
 }

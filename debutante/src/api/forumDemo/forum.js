@@ -51,8 +51,55 @@ export default {
             method: 'Get',
         })
     },
-
-
+    //付费功能 修改帖子等级
+    updateType(title,username,type,uid) {
+        return request({
+            url: `/admin/ForumDemo/discuss-post/updateType?title=${title}&username=${username}&type=${type}&uid=${uid}`,
+            method: 'POST',
+        })
+    },
+    //获取发给我的私信的方法
+    getSender(userId) {
+        return request({
+            url: `/ForumDemo/message/getSender?userId=${userId}`,
+            method: 'GET',
+        })
+    },
+    //获取我发的私信的方法
+    getRecipient(userId){
+        return request({
+            url: `/ForumDemo/message/getRecipient?userId=${userId}`,
+            method: 'GET',
+        })
+    },
+    //获取系统私信
+    getSysMessage(userId){
+        return request({
+            url: `/ForumDemo/message/getSysMessage?userId=${userId}`,
+            method: 'GET',
+        })
+    },
+    //回复私信的方法
+    replyMessage(username,userId,content,ocontent){
+        return request({
+            url: `/ForumDemo/message/replyMessage?username=${username}&userId=${userId}&content=${content}&ocontent=${ocontent}`,
+            method: 'Post',
+        })
+    },
+    //发布系统私信的方法
+    sendSysMessage(content){
+        return request({
+            url: `/ForumDemo/message/systemMessage?content=${content}`,
+            method: 'POST',
+        })
+    },
+    //是否存在系统消息提醒功能
+    getSys(userId){
+        return request({
+            url: `/ForumDemo/message/getSys?userId=${userId}`,
+            method: 'GET',
+        })
+    }
 }
 
 

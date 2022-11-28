@@ -13,7 +13,7 @@
 
 <script>
 import { useRouter } from "vue-router";
-import goodsList from "../api/miaosha/miaoshagoods.js";
+import goodsList from "../../api/miaosha/miaoshagoods.js";
 import { reactive, ref } from "vue";
 import { ElMessageBox } from "element-plus";
 export default {

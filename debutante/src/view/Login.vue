@@ -13,7 +13,9 @@
               content="多好看的头型啊 emoji"
               placement="top-start"
             >
-              <el-avatar id="avatar"> user </el-avatar>
+              <el-avatar id="avatar" v-bind:src="param.pictureoss">
+                user
+              </el-avatar>
             </el-tooltip>
             <el-input
               v-model="param.uid"
@@ -42,6 +44,15 @@
         </el-col>
       </el-row>
     </div>
+    <el-affix :offset="700">
+      <el-link type="info" href="https://beian.miit.gov.cn/#/Integrated/index"
+        >黑ICP备2021006793号-1</el-link
+      >
+      <el-link type="info" href="https://www.12377.cn/"
+        >中国互联网违法和不良信息举报中心</el-link
+      >
+      <el-link type="info">联系电话：17545544638</el-link>
+    </el-affix>
   </div>
 </template>
 
@@ -61,6 +72,9 @@ export default {
       uid: 2020025,
       password: "123456",
       longinTime: "",
+      userId: "",
+      pictureoss:
+        "https://pc5201314.oss-cn-beijing.aliyuncs.com/2022/05/%E5%A4%B4%E5%83%8F/%E7%9D%A1%E8%A1%A3%E5%93%80.jpeg",
     });
     //登录信息
     //信息添加
@@ -83,16 +97,17 @@ export default {
       userInfo.loginByToken(param).then((res) => {
         //获取token值
         let token = res.data.token;
+        if (token == "") {
+          ElMessage.error("用户名或密码错误");
+          return Promise.reject();
+        }
         //放入cookie中 【第一个参数 是名字，第二个参数是信息，第三个参数是作用域】
-        cookie.set("cookieName", token, { domain: "foreverqisui.top" });
+        cookie.set("cookieName", token, { domain: "qisui.top" });
         //根据头信息中的token查询信息
         //再将查询的信息放到cookie中
         getUserInfoByToken();
         router.push("/loginIndex").then((res) => {
-          ElMessage.success("登录成功");
-          setTimeout(() => {
-            window.location.reload();
-          }, 3);
+          window.location.reload();
         });
       });
     }
@@ -100,7 +115,7 @@ export default {
     function getUserInfoByToken() {
       userInfo.getUserInfoByToken().then((res) => {
         let data = JSON.stringify(res.data.userInfo);
-        cookie.set("userInfo", data, { domain: "foreverqisui.top" });
+        cookie.set("userInfo", data, { domain: "qisui.top" });
       });
     }
     //登录按钮
@@ -125,14 +140,19 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(../assets/img/kenan.jpeg);
+  background-image: url("http://qisui.top/debunate/柯哀.jpeg");
   background-size: 100%;
-
+  background-position-x: center;
+  background-position-y: center;
 }
 .container {
   width: 350px;
   height: 100px;
   margin-top: 200px;
+}
+.card {
+  background-image: url("http://qisui.top/debunate/回朦哀.jpeg");
+  background-size: 120%;
 }
 #inputText {
   width: 220px;
@@ -175,7 +195,9 @@ export default {
   margin-top: -20px;
   margin-left: 195px;
 }
-
+.el-affix {
+  font-size: 20;
+}
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;

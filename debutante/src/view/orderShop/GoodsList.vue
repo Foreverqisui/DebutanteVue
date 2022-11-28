@@ -12,11 +12,7 @@
             <el-table-column prop="id" label="ID" v-if="false" />
             <el-table-column prop="goodsImg" label="商品图片" width="100">
               <template #default="scope">
-                <img
-                  v-bind:src="scope.row.goodsImg"
-                  width="100"
-                  height="80"
-                />
+                <img v-bind:src="scope.row.goodsImg" width="100" height="80" />
               </template>
             </el-table-column>
             <el-table-column prop="goodsName" label="商品名" width="100" />
@@ -34,18 +30,25 @@
         </e-card>
       </el-col>
     </el-row>
+    <el-footer>
+      <el-link type="info" href="https://beian.miit.gov.cn/#/Integrated/index"
+        >黑ICP备2021006793号-1</el-link
+      >
+      <el-link type="info" href="https://www.12377.cn/"
+        >中国互联网违法和不良信息举报中心</el-link
+      >
+      <el-link type="info">联系电话：17545544638</el-link>
+    </el-footer>
   </div>
 </template>
 
 
 <script>
+import goodsList from "../../api/miaosha/miaoshagoods.js"
+import ShengDanOldMan from "../../components/ShengDanOldMan.vue"
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage, ElMessageBox } from "element-plus";
-import { Delete, Edit } from "@element-plus/icons-vue";
-import ShengDanOldMan from "../components/ShengDanOldMan.vue";
-import goodsList from "../api/miaosha/miaoshagoods.js";
-
 export default {
   components: {
     ShengDanOldMan,
@@ -101,5 +104,11 @@ export default {
 }
 .el-table .success-row {
   --el-table-tr-bg-color: var(--el-color-success-light-9);
+}
+.el-footer {
+  background-color: rgb(101, 98, 98);
+  margin-top: 50px;
+  font-size: 20;
+  height: 100%;
 }
 </style>

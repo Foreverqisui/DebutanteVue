@@ -1,8 +1,10 @@
 <template>
   <div class="module-body">
-    <el-page-header @back="toHome()" ></el-page-header>
+    <el-page-header @back="toHome()"></el-page-header>
     <div>
-      <el-button type="info" @click="publishWord()" style="margin-left:300px">我要发布</el-button>
+      <el-button type="info" @click="publishWord()" style="margin-left: 300px"
+        >我要发布</el-button
+      >
     </div>
     <el-divider>
       <el-icon><star-filled /></el-icon>
@@ -90,7 +92,7 @@
                     data-v-bf28f726=""
                     src="//static.nowcoder.com/images-nk/oss/page/discuss/center/browse.png"
                     alt=""
-                  />{{ item.page }}</span
+                  />{{ item.status }}</span
                 >
 
                 <span data-v-bf28f726="" class="no-after"
@@ -113,6 +115,15 @@
         </div>
       </li>
     </ul>
+    <el-footer>
+      <el-link type="info" href="https://beian.miit.gov.cn/#/Integrated/index"
+        >黑ICP备2021006793号-1</el-link
+      >
+      <el-link type="info" href="https://www.12377.cn/"
+        >中国互联网违法和不良信息举报中心</el-link
+      >
+      <el-link type="info">联系电话：17545544638</el-link>
+    </el-footer>
   </div>
 </template>
 
@@ -131,6 +142,7 @@ export default {
     function findAll() {
       forum.findAll().then((res) => {
         formLabelAlign.data1 = res.data.data;
+        console.log(formLabelAlign.data1)
       });
     }
 
@@ -143,15 +155,11 @@ export default {
 
     // 发帖功能
     function publishWord() {
-      router.push("/forum/publishWord").then(() => {
-
-      });
+      router.push("/forum/publishWord").then(() => {});
     }
     //回主页
     function toHome() {
-      router.push("/loginIndex").then(() => {
-
-      });
+      router.push("/loginIndex").then(() => {});
     }
     findAll();
     return {
@@ -175,6 +183,8 @@ html {
   height: 100%;
 }
 body {
+  background-image: url("http://pc5201314.oss-cn-beijing.aliyuncs.com/2022/05/%E5%A4%B4%E5%83%8F/%E5%A4%A9%E6%B0%94%E4%B9%8B%E5%AD%90.jpeg");
+  background-position: center;
   font: 25px/1.5 system, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     Helvetica, "PingFang SC", "Segoe UI", "Microsoft YaHei",
     "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Roboto,
@@ -216,5 +226,11 @@ a:hover {
 }
 .head-pic img {
   width: 100%;
+}
+.el-footer {
+  background-color: rgb(101, 98, 98);
+  margin-top: 160px;
+  font-size: 20;
+  height: 100%;
 }
 </style>

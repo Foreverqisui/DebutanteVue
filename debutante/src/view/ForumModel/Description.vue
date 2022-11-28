@@ -37,7 +37,7 @@
                         hit="true"
                         color="black"
                         style="margin-left: 5px"
-                        v-if=" formLabelAlign.params.type == 2"
+                        v-if="formLabelAlign.params.type == 2"
                       >
                         置顶👑
                       </el-tag>
@@ -47,11 +47,14 @@
                         round
                         style="margin-left: 5px"
                         hit="true"
-                        v-if=" formLabelAlign.params.type == 1"
+                        v-if="formLabelAlign.params.type == 1"
                       >
                         精华🎆
                       </el-tag>
-                      <el-tag type="info" v-if=" formLabelAlign.params.type == 0">
+                      <el-tag
+                        type="info"
+                        v-if="formLabelAlign.params.type == 0"
+                      >
                         pc精品🐲
                       </el-tag>
                     </span>
@@ -157,6 +160,15 @@
         </ul>
       </div>
     </div>
+    <el-footer>
+      <el-link type="info" href="https://beian.miit.gov.cn/#/Integrated/index"
+        >黑ICP备2021006793号-1</el-link
+      >
+      <el-link type="info" href="https://www.12377.cn/"
+        >中国互联网违法和不良信息举报中心</el-link
+      >
+      <el-link type="info">联系电话：17545544638</el-link>
+    </el-footer>
   </div>
 </template>
 
@@ -278,6 +290,14 @@ ul {
 body,
 html {
   margin: 0;
+  height: 100%;
+  background-image: url("http://pc5201314.oss-cn-beijing.aliyuncs.com/2022/05/%E5%A4%B4%E5%83%8F/%E6%B5%B7%E8%B4%BC%E7%8E%8B.jpeg");
+  background-position: center;
+}
+.el-footer {
+  background-color: rgb(101, 98, 98);
+  margin-top: 50px;
+  font-size: 20;
   height: 100%;
 }
 </style>
